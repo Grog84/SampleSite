@@ -1,0 +1,19 @@
+{% extends 'sample/base.html' %}
+{% block title %}Sets{% endblock %}
+
+{% block body %}
+    {% if all_samples_set%}
+
+    <!-- <div class="col-md-9 main"> -->
+    <div class="container-fluid">
+        <h1 class="page-header">Sets</h1>
+
+        {% include 'sample/table-template.html' %}
+
+    </div>
+
+    {% else %}
+        <h1>No samples set have been registered yet</h1>
+
+    {% endif %}
+{% endblock %}

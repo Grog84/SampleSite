@@ -1,0 +1,60 @@
+{% extends 'sample/base.html' %}
+{% block title %}Set Details{% endblock %}
+
+{% block body %}
+
+    <!-- <div class="col-md-9 main"> -->
+    <div class="container-fluid">
+
+        <div class="page-header">
+            <div class="btn-toolbar pull-right">
+                <div class="btn-group">
+                    <a href="{% url 'sample:set_update' sampset.0.id %}" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                    <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-print"></span> Print</a>
+                    <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-list-alt"></span> Report</a>
+                </div>
+            </div>
+            <h1 class="page-header">{{sampset.0.set_name}}</h1>
+        </div>
+
+
+        <div class="container">
+            <ul class="list-group">
+              {% for key, value in sampset_dict.items %}
+                <li class="list-group-item">{{ key }} : {{ value }}</li>
+              {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+
+        <div class="page-header">
+            <div class="btn-toolbar pull-right">
+                <div class="btn-group">
+                   <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Add Sample</a>
+                </div>
+            </div>
+            <h1 class="page-header">Samples</h1>
+        </div>
+
+        {% include 'sample/table-template.html' %}
+
+    </div>
+
+    <!--
+    <h1>{{sampset.0.set_name}}</h1>
+    <h3>{{sampset.0.registration_date}}</h3>
+
+    {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+
+    <ul>
+        {% for samp in  sampset.0.sample_set.all %}
+            <li>{{ samp.sample_code }} - {{ samp.sample_description }}</li>
+        {% endfor %}
+    </ul>
+    -->
+
+{% endblock %}

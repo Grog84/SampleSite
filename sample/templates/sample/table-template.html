@@ -1,0 +1,29 @@
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover" data-toggle="table" width="100%">
+      <thead>
+        <tr>
+          {% for hd in table_head_list %}
+            {% if hd == '#' %}
+                <th data-field={{hd}}>{{ hd }}</th>
+            {% else %}
+                <th data-field={{hd}} data-sortable="true">{{ hd }}</th>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      </thead>
+
+      <tbody>
+      {% for tab in table %}
+        <tr>
+            {% for key, value in tab.items %}
+            {% if key == link_key %}
+            <td><a href="{% url link_url_name tab.id %}">{{ value }}</a></td>
+            {% else %}
+          <td>{{ value }}</td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+</div>
